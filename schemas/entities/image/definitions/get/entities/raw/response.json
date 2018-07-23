@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/image/definitions/get/entities/raw/response.json",
+    "type": "object",
+    "description": "Raw image Schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/image/definitions/get/entities/raw/index.json" }
+    }
+}

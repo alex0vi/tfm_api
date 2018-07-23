@@ -1,0 +1,12 @@
+{
+  "key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "apiUrl": "https://api.sendgrid.com",
+  "version": "3",
+  "constants": {
+    "EMAIL_VERIFICATION_TEMPLATE_ID": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "EMAIL_VALID_RESET_PASSWORD_TEMPLATE_ID"      : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "EMAIL_PASSWORD_CHANGED_TEMPLATE_ID"          : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "FROM_EMAIL": "contact@realsafe.co",
+    "FROM_NAME": "Realsafe"
+  }
+}

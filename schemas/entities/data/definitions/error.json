@@ -1,0 +1,33 @@
+{
+    "id": "/schemas/entities/data/definitions/error.json",
+    "type": "object",
+    "description": "error schema",
+    "properties": {
+        "data": {
+            "type": "object",
+            "description": "response",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "example": "Check the email or password field"
+                },
+                "httpCode": {
+                    "type": "number",
+                    "example": 400
+                },
+                "code": {
+                    "type": "string",
+                    "example": "WRONG_CREDENTIALS"
+                },
+                "info": {
+                    "type": "string",
+                    "format": "uri",
+                    "example": "https://develop.addaps.com/api/v2/docs#errors/WRONG_CREDENTIALS"
+                },
+                "payload": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

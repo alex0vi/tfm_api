@@ -1,0 +1,44 @@
+{
+    "id": "/schemas/entities/signUp/definitions/post/entities/email/index.json",
+    "type": "object",
+    "properties": {
+        "email": {
+            "type": "string",
+            "format": "email",
+            "description": "user email",
+            "example": "emilio@addaps.com",
+            "maxLength": 255
+        },
+        "password": {
+            "type": "string",
+            "description": "user password",
+            "example": "987",
+            "maxLength": 255
+        },
+        "firstName": {
+            "type": "string",
+            "description": "user firstName",
+            "example": "Emilio",
+            "maxLength": 255
+        },
+        "lastName": {
+            "type": "string",
+            "description": "user lastName",
+            "example": "Soca",
+            "maxLength": 255
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "example": "27b202671a74c1c0662a1004321626004c28bbfa0e0b54e02afb0a2557666cd9f8541a20caffb6158470e98188a47e6dTwNuyBKxKmdeI7ACJa0TdQ.482C6A1E593D",
+                    "description": "<encryptedDeviceType>.<deviceId>, encryptedDeviceType is MOBILE or DESKTOP string encrypted and deviceId is unique_id for Destok or mobile",
+                    "maxLength": 255
+                }
+            }
+        }
+    },
+    "required": [ "email", "password", "firstName" ],
+    "additionalProperties": true
+}

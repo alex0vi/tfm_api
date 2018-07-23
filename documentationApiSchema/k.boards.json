@@ -1,0 +1,27 @@
+{
+    "id": "/boards",
+    "type": "object",
+    "title": "boards",
+    "description": "Public board definition",
+    "allOf":[{ "$ref": "/schemas/entities/board/definitios/get/entities/public/index.json" }],
+    "links": [
+        {
+            "title": "GET boards/<boardId>",
+            "description": "Get public board details",
+            "href": "/boards/162",
+            "method": "GET",
+            "authentication_needed": false,
+            "targetSchema": { "$ref": "/schemas/entities/board/definitios/get/entities/public/responseById.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        },
+        {
+            "title": "GET boards/<boardId>/publicUrl",
+            "description": "Get one board public url ",
+            "href": "/boards/162/publicUrl",
+            "method": "GET",
+            "authentication_needed": false,
+            "targetSchema": { "$ref": "/schemas/entities/board/definitios/get/entities/public/url/index.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        }
+    ]
+}

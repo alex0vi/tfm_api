@@ -1,0 +1,13 @@
+{
+  "production": {
+      "port": 3051,
+      "rootViewsUrl": "http://localhost:3051/views",
+      "rootUrl": "http://localhost:3051/api"
+
+  },
+  "development": {
+    "port": 3051,
+    "rootViewsUrl": "http://localhost:3051/views",
+    "rootUrl": "http://localhost:3051/api"
+  }
+}

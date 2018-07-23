@@ -1,0 +1,31 @@
+{
+    "id": "/signup",
+    "type": "object",
+    "title": "signup",
+    "description": "Sign up definition",
+    "allOf":[{ "$ref": "/schemas/entities/signUp/definitions/get/entities/canonic/index.json" }],
+    "links": [
+        {
+            "title": "POST signup",
+            "description": "Signup by mail",
+            "rel": "self",
+            "href": "/signup",
+            "method": "POST",
+            "authentication_needed": false,
+            "schema": { "$ref": "/schemas/entities/signUp/definitions/post/entities/email/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/signUp/definitions/get/entities/canonic/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR", "EMAIL_DUPLICATE"]
+        },
+        {
+            "title": "POST signup/facebook",
+            "description": "Facebook signup",
+            "rel": "self",
+            "href": "/signup/facebook",
+            "method": "POST",
+            "authentication_needed": false,
+            "schema": { "$ref": "/schemas/entities/signUp/definitions/post/entities/facebook/index.json"  },
+            "targetSchema": { "$ref": "/schemas/entities/signUp/definitions/get/entities/canonic/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR"]
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "id": "/schemas/entities/board/definitios/get/entities/public/url/responseSingle.json",
+    "description": "Public url",
+    "type": "string",
+    "example": "https://develop.addaps.com/boards/162-best_moto_site_2"
+}

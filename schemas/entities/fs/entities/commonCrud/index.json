@@ -1,0 +1,97 @@
+{
+    "id": "/schemas/entities/fs/entities/commonCrud/index.json",
+    "description": "Common crud schema",
+    "type": "object",
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "File System id, use to make all operations over the file system",
+                    "example": 11454
+                },
+                "parentId": {
+                    "type": "integer",
+                    "description": "The parent folder id",
+                    "example": 12
+                },
+                "children": {
+                    "type": "array",
+                    "description":"Array of fs element schema, recursive schema definition",
+                    "items": {
+                        "type": "object",
+                        "description": "fs element schema, recursive schema definition"
+                    },
+                    "example": []
+                },
+                "type": {
+                    "type": "string",
+                    "example": "FOLDER",
+                    "enum": ["FOLDER"]
+                },
+                "item": {
+                    "type": "object",
+                    "description": "Folder schema",
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "example": 9007
+                        },
+                        "label": {
+                            "type": "string",
+                            "example": "Art",
+                            "maxLength": 255
+                        },
+                        "userId": {
+                            "type": "integer",
+                            "description": "User id",
+                            "example": 20
+                        },
+                        "banner": {
+                            "type": "null",
+                            "example": null
+                        },
+                        "bannerType": {
+                            "type": "null",
+                            "example": null
+                        }
+                    },
+                    "required": ["label"]
+                }
+            }
+        },
+
+        {
+
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "File System id, use to make all operations over the file system",
+                    "example": 11457
+                },
+                "parentId": {
+                    "type": "integer",
+                    "description": "The parent folder id",
+                    "example": 11454
+                },
+                "type": {
+                    "type": "string",
+                    "example": "BOARD",
+                    "enum": ["BOARD"]
+                },
+                "item": { "$ref": "/schemas/entities/board/definitios/get/entities/canonic/index.json" },
+                "children": {
+                    "type": "array",
+                    "description":"The BOARD FS Type always has empty array",
+                    "example": [],
+                    "minItems": 0,
+                    "maxItems": 0
+                }
+            }
+        }
+
+    ]
+
+}

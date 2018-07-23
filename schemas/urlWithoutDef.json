@@ -1,0 +1,6 @@
+{
+     "url": {
+         "type": "string",
+         "format": "uri"
+     }
+}

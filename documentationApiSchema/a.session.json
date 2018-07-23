@@ -1,0 +1,38 @@
+{
+    "id": "/session",
+    "type": "object",
+    "title": "session",
+    "description": "Session definition",
+    "allOf": [{ "$ref": "/schemas/entities/session/definitions/get/entities/canonic/index.json" }],
+    "links": [
+        {
+            "title": "POST session",
+            "description": "Post session",
+            "href": "/session",
+            "method": "POST",
+            "authentication_needed": false,
+            "schema": { "$ref": "/schemas/entities/session/definitions/post/entities/canonic/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/session/definitions/get/entities/canonic/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR", "WRONG_CREDENTIALS"]
+        },
+        {
+            "title": "POST session/facebook",
+            "description": "Post facebook session",
+            "href": "/session/facebook",
+            "method": "POST",
+            "authentication_needed": false,
+            "schema": { "$ref": "/schemas/entities/session/definitions/post/entities/facebook/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/session/definitions/get/entities/canonic/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR"]
+        },
+        {
+            "title": "GET guest_mode_session",
+            "description": "Get guest mode session",
+            "href": "/guest_mode_session",
+            "method": "GET",
+            "authentication_needed": false,
+            "targetSchema": { "$ref": "/schemas/entities/session/definitions/get/entities/guest/response.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        }
+    ]
+}

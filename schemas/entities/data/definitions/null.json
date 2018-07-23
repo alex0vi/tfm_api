@@ -1,0 +1,12 @@
+{
+    "id": "/schemas/entities/data/definitions/null.json",
+    "type": "object",
+    "description": "data response is null",
+    "properties": {
+        "data": {
+            "type": "null",
+            "description": "response ",
+            "example": null
+        }
+    }
+}

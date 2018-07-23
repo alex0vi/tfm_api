@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/fs/entities/commonCrud/response.json",
+    "type": "object",
+    "description": "Common crud response schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/fs/entities/commonCrud/index.json" }
+    }
+}

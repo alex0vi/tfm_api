@@ -1,0 +1,63 @@
+
+{
+    "id": "/schemas/entities/contensState/definitions/get/entities/pined/index.json",
+    "type": "object",
+    "description": "One content state (for example web pined)",
+    "properties": {
+        "isMuted": {
+            "type": "boolean",
+            "description": "Cube muted",
+            "example": true
+        },
+        "isPined": {
+            "type": "boolean",
+            "description": "Cube pined",
+            "example": true
+        },
+        "isFrozen": {
+            "type": "boolean",
+            "example": true,
+            "description": "Cube frozen",
+        },
+        "windowState": {
+            "type": "string",
+            "description": "Window State",
+            "example": "NORMAL"
+        },
+        "visualizationMode": {
+            "type": "string",
+            "description": "Visualization Mode",
+            "example": "NORMAL"
+        },
+        "style": {
+            "type": "object",
+            "description": "Css styles defined from client side",
+            "properties": {
+                "top": {
+                    "type": "string",
+                    "example": "1px"
+                },
+                "left": {
+                    "type": "string",
+                    "example": "1px"
+                },
+                "width": {
+                    "type": "string",
+                    "example": "10px"
+                },
+                "height": {
+                    "type": "string",
+                    "example": "10px"
+                },
+                "margin": {
+                    "type": "string",
+                    "example": "0px"
+                },
+                "position": {
+                    "type": "string",
+                    "example": "fixed"
+                }
+            }
+        }
+    }
+}

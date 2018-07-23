@@ -1,0 +1,11 @@
+{
+    "id": "/schemas/entities/board/definitios/get/entities/fs/response.json",
+    "type": "object",
+    "description": "Main response fs Board Schema",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": { "$ref": "/schemas/entities/board/definitios/get/entities/fs/index.json" }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "id": "/schemas/entities/boardReportTypes/definitions/get/entities/canonic/index.json",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "example": "ANNOYING",
+            "enum": ["AGAINST_VALUE", "ANNOYING", "FAKE", "SEXUAL_CONTENT", "SPAM", "OTHER"]
+        },
+        "description": {
+            "type": "string",
+            "example": "It's annoying or distasteful",
+            "maxLength": 255
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "id": "/schemas/entities/board/entities/state/index.json",
+    "description": "",
+    "type": "object",
+    "description": "Board state",
+    "properties": {
+        "scrollTop": {
+            "type": "integer",
+            "example": 0
+        },
+        "isFrozen": {
+            "type": "boolean",
+            "example": false
+        },
+        "dimensions": {
+            "type": ["object", "null"],
+            "properties": {
+                "width": {
+                    "type": "integer",
+                    "example": 670
+                },
+                "height":{
+                    "type": "integer",
+                    "example": 921
+                }
+            }
+        }
+    }
+}

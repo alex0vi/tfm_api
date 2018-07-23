@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/session/definitions/get/entities/guest/response.json",
+    "type": "object",
+    "description": "Guest Session element schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/session/definitions/get/entities/guest/index.json" }
+    }
+}

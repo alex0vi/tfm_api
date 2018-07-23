@@ -1,0 +1,21 @@
+{
+    "id": "/schemas/entities/discoverFeeds/definitions/get/entities/canonic/index.json",
+    "type": "object",
+    "description": "user discover feed Schema",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": { "$ref": "/schemas/entities/board/definitios/get/entities/preview/index.json" }
+        },
+        "total": {
+            "type": "integer",
+            "description": "Number of boards found",
+            "example": 10
+        },
+        "offset": {
+            "type": "integer",
+            "description": "position of the reader pointer",
+            "example": 2
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "id": "/schemas/entities/fs/definitions/post/entities/restore/index.json",
+    "type": "object",
+    "description": "restore fs item from trash",
+    "properties": {
+        "action": {
+            "type": "string",
+            "example": "RESTORE",
+            "enum": ["RESTORE"]
+        }    },
+    "required": ["action"]
+}

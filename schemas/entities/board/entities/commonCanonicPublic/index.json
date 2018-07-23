@@ -1,0 +1,54 @@
+{
+    "id": "/schemas/entities/board/entities/commonCanonicPublic/index.json",
+    "type": "object",
+    "description": "Common canonicPublic Schema",
+    "allOf": [
+        { "$ref": "/schemas/entities/board/entities/common/index.json" },
+        {
+            "properties": {
+                "userId": {
+                    "type": "integer",
+                    "description": "User id",
+                    "example": 20
+                },
+                "contents": { "$ref": "/schemas/entities/content/definitions/get/entities/canonic/index.json" },
+                "contentsState": { "$ref": "/schemas/entities/contensState/definitions/get/entities/canonic/index.json" },
+                "state": { "$ref": "/schemas/entities/board/entities/state/index.json" },
+                "labels": {
+                    "type": "array",
+                    "description": "Board labels",
+                    "example": ["news"],
+                     "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "minItems": 0
+                },
+                "emotions": { "$ref": "/schemas/entities/emotions/definitions/get/entities/canonic/index.json" },
+                "comments": {
+                    "type": "integer",
+                    "example": 0,
+                    "description": "Board comments",
+                    "minimum": 0
+                },
+                "shares": {
+                    "type": "integer",
+                    "example": 0,
+                    "description": "Board shares",
+                    "minimum": 0
+                },
+                "isPublic": {
+                    "type": "boolean",
+                    "description": "true is the board has been published by the caller, otherwise it is false",
+                    "example": true
+                },
+                "isStarred": {
+                    "type": "boolean",
+                    "description": "true is the board has been starred by the caller, otherwise it is false",
+                    "example": true
+                }
+            }
+        }
+    ]
+}

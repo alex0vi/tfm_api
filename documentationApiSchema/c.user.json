@@ -1,0 +1,48 @@
+{
+    "id": "/user",
+    "type": "object",
+    "title": "user",
+    "description": "User definition",
+    "allOf":[{ "$ref": "/schemas/entities/user/definitions/get/entities/canonic/index.json" }],
+    "links": [
+        {
+            "title": "GET user",
+            "description": "Get user details",
+            "href": "/user",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/user/definitions/get/entities/canonic/response.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        },
+        {
+            "title": "PATCH user",
+            "description": "Update part of your user details",
+            "href": "/user",
+            "method": "PATCH",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/user/definitions/patch/entities/canonic/index.json" },
+            "targetSchema": {  "$ref": "/schemas/entities/user/definitions/get/entities/canonic/index.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR"]
+        },
+        {
+            "title": "PUT user/password",
+            "description": "Change password user",
+            "href": "/user/password",
+            "method": "PUT",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/user/definitions/put/entities/resetPassword/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/data/definitions/null.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR", "OLD_PASSWORD_INCORRECT", "NEW_PASSWORD_INCORRECT"]
+        },
+        {
+            "title": "POST user/deactivate",
+            "description": "Deactivate Addap's account",
+            "href": "/user/deactivate",
+            "method": "POST",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/user/definitions/post/entities/deactivate/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/data/definitions/null.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR"]
+        }
+    ]
+}

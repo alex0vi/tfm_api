@@ -1,0 +1,24 @@
+{
+    "id": "/schemas/entities/fs/definitions/post/entities/move/index.json",
+    "type": "object",
+    "description": "fs move",
+    "properties": {
+        "type": {
+            "type": "string",
+            "example": "MOVE",
+            "enum": ["MOVE"]
+        },
+        "items": {
+            "type": "array",
+            "description":"fsItemId",
+            "example":[11457],
+            "items": {
+                "type": "integer"
+            }
+        }
+    },
+    "required": [
+        "type",
+        "items"
+    ]
+}

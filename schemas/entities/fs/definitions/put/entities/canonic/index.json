@@ -1,0 +1,14 @@
+{
+    "id": "/schemas/entities/fs/definitions/put/entities/canonic/index.json",
+    "type": "object",
+    "description": "fs put",
+    "properties": {
+        "label": {
+            "type": "string",
+            "example": "My Board",
+            "minLength": 1,
+            "maxLength": 255
+        }
+    },
+    "required": [ "label" ]
+}

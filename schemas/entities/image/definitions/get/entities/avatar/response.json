@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/image/definitions/get/entities/avatar/response.json",
+    "type": "object",
+    "description": "Avatar image Schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/image/definitions/get/entities/avatar/index.json" }
+    }
+}

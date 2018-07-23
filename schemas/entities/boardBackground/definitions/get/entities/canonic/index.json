@@ -1,0 +1,38 @@
+{
+    "id":"/schemas/entities/boardBackground/definitions/get/entities/canonic/index.json",
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type":"string",
+                    "example":"ADDAPS_IMG",
+                    "enum": ["ADDAPS_IMG"]
+                },
+                "item": { "$ref": "/schemas/entities/image/definitions/get/entities/free/index.json" }
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type":"string",
+                    "example":"USER_IMG",
+                    "enum": ["USER_IMG"]
+                },
+                "item": { "$ref": "/schemas/entities/image/definitions/get/entities/free/index.json" }
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type":"string",
+                    "example":"CSS_COLOR",
+                    "enum": ["CSS_COLOR"]
+                },
+                "item": { "$ref": "/schemas/entities/boardBackground/entities/cssColor/index.json" }
+            }
+        }
+    ]
+}

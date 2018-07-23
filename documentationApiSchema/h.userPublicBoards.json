@@ -1,0 +1,36 @@
+{
+    "id": "/user/public/boards",
+    "type": "array",
+    "title": "user/public/boards",
+    "description": "User public board definition",
+    "items": { "$ref": "/schemas/entities/board/definitios/get/entities/public/index.json" },
+    "links": [
+        {
+            "title": "GET user/public/boards",
+            "description": "Get user public boards",
+            "href": "/user/public/boards",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/board/definitios/get/entities/public/response.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        },
+        {
+            "title": "PUT user/public/boards/<boardId>",
+            "description": "Put a user public board by ID",
+            "href": "/user/public/boards/162",
+            "method": "PUT",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/board/definitios/get/entities/public/responseById.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR"]
+        },
+        {
+            "title": "DELETE user/public/boards/<boardId>",
+            "description": "Delete a user public board by ID",
+            "href": "/user/public/boards/162",
+            "method": "DELETE",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/data/definitions/null.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "id": "/schemas/entities/discoverFeeds/definitions/get/entities/canonic/queryBody.json",
+    "type": "object",
+    "properties": {
+        "limit": {
+            "type" : "integer",
+            "example": 10
+        },
+        "offset": {
+            "type": "integer",
+            "example": 0
+        },
+        "_filter": {
+            "type": "object",
+            "properties": {
+                "types": {
+                    "type": "array",
+                    "example": ["BOARD"],
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "labels": {
+                    "type": "array",
+                    "example": ["music", "home"],
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "qTerm": {
+                    "type": "string",
+                    "example": "in"
+                },
+                "cubesRange": {
+                    "type": "object",
+                    "properties": {
+                        "min": {
+                            "type": "integer",
+                            "example": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

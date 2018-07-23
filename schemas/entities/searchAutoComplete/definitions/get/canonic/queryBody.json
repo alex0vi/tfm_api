@@ -1,0 +1,10 @@
+{
+    "id": "/schemas/entities/searchAutoComplete/definitions/get/canonic/queryBody.json",
+    "type": "object",
+    "properties": {
+        "qTerm": {
+            "type" : "string",
+            "example": "trav"
+        }
+    }
+}

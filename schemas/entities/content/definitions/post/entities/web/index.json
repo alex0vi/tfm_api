@@ -1,0 +1,37 @@
+{
+    "id": "/schemas/entities/content/definitions/post/entities/web/index.json",
+    "type": "object",
+    "description": "Web content Schema - POST",
+    "properties" :{
+        "label": {
+            "type": "string",
+            "description": "Content title",
+            "example": "A Mere | Restaurants in Grands Boulevards, Paris",
+            "maxItems": 255
+        },
+        "type": {
+            "type": "string",
+            "example": "WEB",
+            "description": "Type of content",
+            "enum": ["WEB"]
+        },
+        "item": {
+            "type": "object",
+            "properties": {
+                "externalUrl": {
+                    "type": "object",
+                    "properties": {
+                        "url":{
+                            "type": "string",
+                            "format": "uri",
+                            "example": "https://www.timeout.com/paris/en/restaurants/a-mere"
+                        }
+                    },
+                    "required": [ "url" ]
+                }
+            },
+            "required": [ "externalUrl" ]
+        }
+    },
+    "required": [ "label", "type", "item" ]
+}

@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/fs/definitions/get/entities/canonic/response.json",
+    "type": "object",
+    "description": "FS Element Schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/fs/definitions/get/entities/canonic/index.json" }
+    }
+}

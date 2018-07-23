@@ -1,0 +1,13 @@
+{
+    "id": "/schemas/entities/token/definitions/post/entities/refreshToken/index.json",
+    "type": "object",
+    "properties" : {
+        "refreshToken": {
+            "type": "string",
+            "description": "user refresh token",
+            "format": "uuid",
+            "example": "72d32a27-cf94-47b1-bf02-f3e2a031baf5"
+        }
+    },
+    "required": ["refreshToken"]
+}

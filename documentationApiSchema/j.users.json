@@ -1,0 +1,18 @@
+{
+    "id": "/users",
+    "title": "users",
+    "type": "object",
+    "description": "Public user definition",
+    "allOf":[{ "$ref": "/schemas/entities/user/definitions/get/entities/public/index.json" }],
+    "links": [
+        {
+            "title": "GET users/<userId>",
+            "description": "Get public user details",
+            "href": "/users/20",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/user/definitions/get/entities/public/response.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        }
+    ]
+}

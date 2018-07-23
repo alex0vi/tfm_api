@@ -1,0 +1,140 @@
+{
+    "id": "/user/fs/boards",
+    "type": "object",
+    "title": "user/fs/boards",
+    "description": "User fs boards definition",
+    "allOf": [{ "$ref": "/schemas/entities/fs/definitions/get/entities/canonic/index.json"  }],
+    "links": [
+        {
+            "title": "GET user/fs/boards",
+            "description": "Get a root FS",
+            "href": "/user/fs/boards?childrenDepth=1",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref":  "/schemas/entities/fs/definitions/get/entities/root/response.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        },
+        {
+            "title": "GET user/fs/boards/<fsItemId>",
+            "description": "Get a fs item Id",
+            "href": "/user/fs/boards/11457?childrenDepth=1",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref":  "/schemas/entities/fs/definitions/get/entities/canonic/response.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        },
+        {
+            "title": "POST user/fs/boards/<parentFsItemId>(CREATE)",
+            "description": "CREATE A FS",
+            "href": "/user/fs/boards/12",
+            "method": "POST",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/fs/definitions/post/entities/create/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/fs/definitions/post/entities/create/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR", "PATCH_BOARD_WRONG_FORMAT"]
+        },
+        {
+            "title": "POST user/fs/boards/<parentFsItemId>(MOVE)",
+            "description": "MOVE A FS",
+            "href": "/user/fs/boards/11454",
+            "method": "POST",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/fs/definitions/post/entities/move/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/fs/definitions/post/entities/move/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR"]
+        },
+        {
+            "title": "POST user/fs/boards/<parentFsItemId>(COPY)",
+            "description": "COPY A FS",
+            "href": "/user/fs/boards/11454",
+            "method": "POST",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/fs/definitions/post/entities/copy/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/fs/definitions/post/entities/copy/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR"]
+        },
+        {
+            "title": "PUT user/fs/boards/<fileId> (Rename)",
+            "description": "Rename Fs",
+            "href": "/user/fs/boards/11457",
+            "method": "PUT",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/fs/definitions/put/entities/canonic/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/fs/entities/commonCrud/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR"]
+        },
+        {
+            "title": "GET user/fs/boards/starred",
+            "description": " Get all fs starred items ",
+            "href": "/user/fs/boards/starred",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/fs/definitions/get/entities/canonic/responseSeveral.json" },
+            "errors": [ "UNSUPPORTED_ERROR" ]
+        },
+        {
+            "title": "GET user/fs/boards/recentlyOpened",
+            "description": " Get all fs recentlyOpened items ",
+            "href": "/user/fs/boards/recentlyOpened",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/fs/definitions/get/entities/canonic/responseSeveral.json" },
+            "errors": [ "UNSUPPORTED_ERROR" ]
+        },
+        {
+            "title": "DELETE user/fs/boards/<fileId>",
+            "description": " Move fs item to trash",
+            "href": "/user/fs/boards/11454",
+            "method": "DELETE",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/data/definitions/null.json" },
+            "errors": ["UNSUPPORTED_ERROR", "RESOURCE_NOT_FOUND"]
+        },
+        {
+            "title": "GET user/fs/boards/trash",
+            "description": " Get all fs trash items ",
+            "href": "/user/fs/boards/trash",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/fs/definitions/get/entities/root/responseSeveral.json" },
+            "errors": [ "UNSUPPORTED_ERROR" ]
+        },
+        {
+            "title": "GET user/fs/boards/trash/<fileId>",
+            "description": " Get fs trash item ",
+            "href": "/user/fs/boards/trash/<fileId>",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "" },
+            "errors": [ "UNSUPPORTED_ERROR", "RESOURCE_NOT_FOUND", "CANNOT_OPENED_FOLDER_IN_TRASH" ]
+        },
+        {
+            "title": "POST user/fs/boards/trash/<fileId>(RESTORE)",
+            "description": " Restore item from trash",
+            "href": "/user/fs/boards/trash/13277",
+            "method": "POST",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/fs/definitions/post/entities/restore/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/data/definitions/null.json" },
+            "errors": [ "UNSUPPORTED_ERROR" ]
+        },
+        {
+            "title": "DELETE user/fs/boards/trash/<fileId>",
+            "description": " delete a fs trash item permanently ",
+            "href": "/user/fs/boards/trash/<fileId>",
+            "method": "DELETE",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/data/definitions/null.json" },
+            "errors": [ "UNSUPPORTED_ERROR" ]
+        },
+        {
+            "title": "DELETE user/fs/boards/trash",
+            "description": " Empty fs trash ",
+            "href": "/user/fs/boards/trash",
+            "method": "DELETE",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/data/definitions/null.json" },
+            "errors": [ "UNSUPPORTED_ERROR" ]
+        }
+    ]
+}

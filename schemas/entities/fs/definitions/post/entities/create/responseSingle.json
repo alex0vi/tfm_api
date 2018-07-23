@@ -1,0 +1,26 @@
+{
+    "id": "/schemas/entities/fs/definitions/post/entities/create/responseSingle.json",
+    "description": "FS Element Schema",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer",
+                "description": "File System id, use to make all operations over the file system",
+                "example": 11457
+            },
+            "parentId": {
+                "type": "integer",
+                "description": "The parent folder id",
+                "example": 12
+            },
+            "type": {
+                "type": "string",
+                "example": "BOARD",
+                "enum": ["BOARD"]
+            },
+            "item": { "$ref": "/schemas/entities/board/definitios/get/entities/canonic/index.json" }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "id": "/schemas/entities/signUp/definitions/post/entities/facebook/index.json",
+    "type": "object",
+    "properties": {
+        "authToken": {
+            "type": "string",
+            "description": "auth token",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYlVzZXIiOnsiaWQiOjE2MjkxMjc5MTA0ODQ1NDAsIm5hbWUiOiJFbWlsaW8gU29jYSBIZXJyZXJhIiwicGljdHVyZSI6eyJkYXRhIjp7ImlzU2lsaG91ZXR0ZSI6ZmFsc2UsInVybCI6Imh0dHBzOi8vc2NvbnRlbnQueHguZmJjZG4ubmV0L3YvdDEuMC0xL2M1MC41MC42MjEuNjIxL3M1MHg1MC80MDgxNjhfMjY0Mzk5MTQwMjkwNzY0XzEzMjA0NDMzNThfbi5qcGc_b2g9OTZmZTIwYTRjZjgyMWRkNWY5Yjg0NzkyN2U1ZGI1MjImb2U9NUEzRUFENkYifX0sImVtYWlsIjoiZXNvY2ExMjNAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiRW1pbGlvIiwibGFzdE5hbWUiOiJTb2NhIEhlcnJlcmEifSwidG9rZW5EYXRhIjp7ImFjY2Vzc1Rva2VuIjoiRUFBUFdja1pCMkdoZ0JBTTZOZXJ5MWp6ZTdKNXJSTzNoUk9HQWkyWkJVZTJnTklydFpCYk9OcDY0cDY3Vm1aQlNSVlVpR1BhaGRkZExQNndSaEF2N1pCWXd4Ync3cElDUXFlQ0thWGdZSThUYXNIYjE0WkJMSDZaQWthQ1J3UGpCc24xanhDaEZFaHN5QkF0UFlMeXhWMmFFaXc4YWFFWE5rS2ZoUFpDaldFaUVZUVpEWkQiLCJ0b2tlblR5cGUiOiJiZWFyZXIiLCJleHBpcmVzSW4iOjUxNTUzMzZ9LCJpYXQiOjE1MDU3NDk0OTV9.b9hwqwRDg-tj5sakXE6af-HD4SGBLCky6FysSthdHLA"
+        },
+        "email": {
+            "type": "string",
+            "format": "email",
+            "description": "user email",
+            "example": "emilio3@addaps.com",
+            "maxLength": 255
+        },
+        "firstName": {
+            "type": "string",
+            "description": "user firstName",
+            "example": "Emilio",
+            "maxLength": 255
+        },
+        "lastName": {
+            "type": "string",
+            "description": "user lastName",
+            "example": "Soca",
+            "maxLength": 255
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "example": "27b202671a74c1c0662a1004321626004c28bbfa0e0b54e02afb0a2557666cd9f8541a20caffb6158470e98188a47e6dTwNuyBKxKmdeI7ACJa0TdQ.482C6A1E593D",
+                    "description": "<encryptedDeviceType>.<deviceId>, encryptedDeviceType is MOBILE or DESKTOP string encrypted and deviceId is unique_id for Destok or mobile",
+                    "maxLength": 255
+                }
+            }
+        }
+    },
+    "required": [ "email", "authToken", "firstName" ],
+    "additionalProperties": true
+}

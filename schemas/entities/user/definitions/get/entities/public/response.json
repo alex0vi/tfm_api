@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/user/definitions/get/entities/public/response.json",
+    "type": "object",
+    "description": "User Public Schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/user/definitions/get/entities/public/index.json"}
+    }
+}

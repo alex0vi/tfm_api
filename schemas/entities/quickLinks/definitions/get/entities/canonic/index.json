@@ -1,0 +1,20 @@
+{
+    "id": "/schemas/entities/quickLinks/definitions/get/entities/canonic/index.json",
+    "type": "object",
+    "properties": {
+        "url": {
+            "type": "string",
+            "description": "url",
+            "format": "uri",
+            "example": "https://app.keymetrics.io"
+        },
+        "urlImg": {
+            "type": "string",
+            "description": "favicon url",
+            "format": "uri",
+            "example": "https://www.google.com/s2/favicons?domain=https://app.keymetrics.io"
+        }
+    },
+    "required": [ "url", "urlImg" ],
+    "additionalProperties": false
+}

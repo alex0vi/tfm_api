@@ -1,0 +1,20 @@
+{
+    "id": "/schemas/entities/fs/definitions/post/entities/copy/index.json",
+    "type": "object",
+    "description": "fs copy schema",
+    "properties": {
+        "type": {
+            "type": "string",
+            "example": "COPY",
+            "enum": ["COPY"]
+        },
+        "items": {
+            "type": "array",
+            "description":"fsItemId",
+            "example":[11457],
+            "items": {
+                "type": "integer"
+            }
+        }
+    }
+}

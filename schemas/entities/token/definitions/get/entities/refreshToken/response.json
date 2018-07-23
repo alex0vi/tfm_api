@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/token/definitions/get/entities/refreshToken/response.json",
+    "type": "object",
+    "description": "Token response schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/token/definitions/get/entities/refreshToken/index.json" }
+    }
+}

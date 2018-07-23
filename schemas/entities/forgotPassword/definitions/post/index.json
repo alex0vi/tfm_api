@@ -1,0 +1,15 @@
+{
+    "id": "/schemas/entities/forgotPassword/definitions/post/index.json",
+    "type": "object",
+    "description": "Forgot password body schema",
+    "properties": {
+        "email": {
+            "type": "string",
+            "description": "User email",
+            "format": "email",
+            "example": "alex@addaps.com",
+            "maxItems": 255
+        }
+    },
+    "required": [ "email" ]
+}

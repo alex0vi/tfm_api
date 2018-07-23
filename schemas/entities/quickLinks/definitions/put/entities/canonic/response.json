@@ -1,0 +1,11 @@
+{
+    "id": "/schemas/entities/quickLinks/definitions/put/entities/canonic/response.json",
+    "type": "object",
+    "description": "QuickLink Schema",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": { "$ref": "/schemas/entities/quickLinks/definitions/get/entities/canonic/index.json" }
+        }
+    }
+}

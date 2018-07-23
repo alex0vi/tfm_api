@@ -1,0 +1,30 @@
+{
+    "id": "/schemas/entities/image/definitions/get/entities/cover/index.json",
+    "type": "object",
+    "properties": {
+        "sm": {
+             "type": "string",
+             "format": "uri",
+             "example": "https://develop.addaps.com/static/uploaded_images/0f0e6b58-abc0-4156-b612-4f45997d9db0_328x121.jpg"
+        },
+        "m": {
+             "type": "string",
+             "format": "uri",
+             "example": "https://develop.addaps.com/static/uploaded_images/0f0e6b58-abc0-4156-b612-4f45997d9db0_657x243.jpg"
+
+        },
+        "lm": {
+             "type": "string",
+             "format": "uri",
+             "example": "https://develop.addaps.com/static/uploaded_images/0f0e6b58-abc0-4156-b612-4f45997d9db0_1314x487.jpg"
+
+        },
+        "id": {
+            "type": ["string", "null"],
+            "format": "uuid",
+            "example": "0f0e6b58-abc0-4156-b612-4f45997d9db0"
+        }
+    },
+    "required":  [ "id" ],
+    "additionalProperties": false
+}

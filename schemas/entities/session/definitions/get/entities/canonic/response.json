@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/session/definitions/get/entities/canonic/response.json",
+    "type": "object",
+    "description": "Session element schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/session/definitions/get/entities/canonic/index.json" }
+    }
+}

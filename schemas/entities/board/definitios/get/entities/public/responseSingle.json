@@ -1,0 +1,6 @@
+{
+    "id": "/schemas/entities/board/definitios/get/entities/public/responseSingle.json",
+    "description": "Board Public Single array Schema",
+    "type": "array",
+    "items": { "$ref": "/schemas/entities/board/definitios/get/entities/public/index.json" }
+}

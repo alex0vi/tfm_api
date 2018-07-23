@@ -1,0 +1,64 @@
+{
+    "id": "/schemas/entities/content/definitions/get/entities/web/index.json",
+    "type": "object",
+    "description": "Web content Schema",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Content identifier tag",
+            "example": 7866
+        },
+        "label": {
+            "type": "string",
+            "description": "Content title",
+            "example": "A Mere | Restaurants in Grands Boulevards, Paris",
+            "maxItems": 255
+        },
+        "userId": {
+            "type": "integer",
+            "description": "User id",
+            "example": 20
+        },
+        "type": {
+            "type": "string",
+            "example": "WEB",
+            "description": "Type of content",
+            "enum": ["WEB"]
+        },
+        "item": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "example": 7866
+                },
+                "externalUrl": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "example": 3601
+                        },
+                        "url":{
+                            "type": "string",
+                            "format": "uri",
+                            "example": "https://www.timeout.com/paris/en/restaurants/a-mere"
+                        },
+                        "screenshotFileId": {
+                            "type": "null",
+                            "example": null
+                        },
+                        "contentType": {
+                            "type": "null",
+                            "example": null
+                        },
+                        "statusCode": {
+                            "type": "null",
+                            "example": null
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

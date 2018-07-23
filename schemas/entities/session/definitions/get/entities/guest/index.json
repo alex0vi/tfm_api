@@ -1,0 +1,17 @@
+{
+    "id": "/schemas/entities/session/definitions/get/entities/guest/index.json",
+    "type": "object",
+    "description": "Guest Session",
+    "properties" : {
+        "accessToken": {
+            "type": "string",
+            "description": "guest acces token",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOlsiL2JvYXJkcy86aWQoWzAtOV0rKS5HRVQiLCIvYm9hcmRzLzppZChbMC05XSspL3B1YmxpY1VybC5HRVQiLCIvYm9hcmRzLzppZChbMC05XSspL3JlcG9ydFR5cGVzLlBPU1QiLCIvYm9hcmRzL3JlcG9ydFR5cGVzLkdFVCIsIi9zZWFyY2hBdXRvQ29tcGxldGUuR0VUIiwiL3Nlc3Npb24uUE9TVCIsIi9zZXNzaW9uL2ZhY2Vib29rLlBPU1QiLCIvc2Vzc2lvbi9ndWVzdF9tb2RlX3Nlc3Npb24uR0VUIiwiL3NpZ251cC5QT1NUIiwiL3NpZ251cC9mYWNlYm9vay5QT1NUIiwiL3VzZXIvZmVlZHMvZGlzY292ZXIuR0VUIiwiL3VzZXJzLkdFVCJdLCJpYXQiOjE1MjM4NzAzMjR9.-2ZKl_4CAqR2fmDuBYQcZEISxcrVetbB-SU3hkXfAig"
+        },
+        "refreshToken": {
+            "type": "null",
+            "description": "guest refresh token",
+            "example": null
+        }
+    }
+}

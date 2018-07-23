@@ -1,0 +1,6 @@
+{
+    "id": "/schemas/entities/quickLinks/definitions/get/entities/canonic/responseSingle.json",
+    "type": "array",
+    "description": "QuickLink Schema",
+    "items": { "$ref": "/schemas/entities/quickLinks/definitions/get/entities/canonic/index.json" }
+}

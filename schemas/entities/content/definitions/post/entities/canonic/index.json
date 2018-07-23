@@ -1,0 +1,7 @@
+
+{
+    "id": "/schemas/entities/content/definitions/post/entities/canonic/index.json",
+    "type": "array",
+    "description": "Board Content Schema, could be WEB, TV, RADIO or GAME content",
+    "items": { "$ref": "/schemas/entities/content/definitions/post/entities/web/index.json"  }
+}

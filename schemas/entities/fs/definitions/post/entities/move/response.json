@@ -1,0 +1,59 @@
+{
+    "id": "/schemas/entities/fs/entities/move/response.json",
+    "type": "object",
+    "description": "move fs Element Schema",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "File System id, use to make all operations over the file system",
+                    "example": 11454
+                },
+                "parentId": {
+                    "type": "integer",
+                    "description": "The parent folder id",
+                    "example": 12
+                },
+                "type": {
+                    "type": "string",
+                    "example": "FOLDER",
+                    "enum": ["FOLDER"]
+                },
+                "item": {
+                    "type": "object",
+                    "description": "folder item description",
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "example": 9007
+                        },
+                        "label": {
+                            "type": "string",
+                            "example": "Art",
+                            "maxLength": 255
+                        },
+                        "userId": {
+                            "type": "integer",
+                            "description": "User id",
+                            "example": 20
+                        },
+                        "banner": {
+                            "type": "null",
+                            "example": null
+                        },
+                        "bannerType": {
+                            "type": "null",
+                            "example": null
+                        }
+                    }
+                },
+                "children": {
+                    "type": "array",
+                    "items": { "$ref": "/schemas/entities/board/definitios/get/entities/canonic/index.json" }
+                }
+            }
+        }
+    }
+}

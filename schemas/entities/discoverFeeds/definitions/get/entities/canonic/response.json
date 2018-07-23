@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/discoverFeeds/definitions/get/entities/canonic/response.json",
+    "type": "object",
+    "description": "discoverFeed Schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/discoverFeeds/definitions/get/entities/canonic/index.json" }
+    }
+}

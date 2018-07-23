@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/user/definitions/get/entities/canonic/response.json",
+    "type": "object",
+    "description": "User Private Schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/user/definitions/get/entities/canonic/index.json"}
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "rest-api-js-client",
+  "version": "0.0.1",
+  "description": "rest api js client",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha 'tests/**/*.test.js'"
+  },
+  "author": "Emilio Soca",
+  "license": "ISC"
+}

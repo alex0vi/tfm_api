@@ -1,0 +1,20 @@
+{
+    "id": "/schemas/entities/user/definitions/put/entities/resetPassword/index.json",
+    "type": "object",
+    "properties": {
+        "oldPassword": {
+            "type": "string",
+            "description": "user old passsword",
+            "example": "987",
+            "maxLength": 255
+        },
+        "newPassword": {
+            "type": "string",
+            "description": "user new password",
+            "example": "987",
+            "maxLength": 255
+        }
+    },
+    "required": [ "newPassword" ],
+    "additionalProperties": true
+}

@@ -1,0 +1,16 @@
+{
+    "id": "/schemas/entities/board/definitios/get/entities/canonic/index.json",
+    "type": "object",
+    "description": "Board Private Schema",
+    "allOf": [
+        { "$ref": "/schemas/entities/board/entities/commonCanonicPublic/index.json" },
+        {
+            "properties": {
+                "publicData": {
+                    "type": "null",
+                    "example": null
+                }
+            }
+        }
+    ]
+}

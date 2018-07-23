@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/userImages/definitions/post/entities/avatar/index.json",
+    "type": "string",
+    "media": {
+        "binaryEncoding": "base64",
+        "type": "image/jpg"
+    }
+}

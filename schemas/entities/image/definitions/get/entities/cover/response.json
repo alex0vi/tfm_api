@@ -1,0 +1,8 @@
+{
+    "id": "/schemas/entities/image/definitions/get/entities/cover/response.json",
+    "type": "object",
+    "description": "Cover image Schema",
+    "properties": {
+        "data": { "$ref": "/schemas/entities/image/definitions/get/entities/cover/index.json" }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "id": "/boards/reportTypes",
+    "title": "boards/reportTypes",
+    "type": "array",
+    "description": "Report type definition",
+    "items": { "$ref": "/schemas/entities/boardReportTypes/definitions/get/entities/canonic/index.json" } ,
+    "links": [
+        {
+            "title": "GET boards/reportTypes",
+            "description": "Get boards report types",
+            "href": "/boards/reportTypes",
+            "method": "GET",
+            "authentication_needed": true,
+            "targetSchema": { "$ref": "/schemas/entities/boardReportTypes/definitions/get/entities/canonic/response.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        },
+        {
+            "title": "POST boards/<boardId>/report",
+            "description": "Report a board",
+            "href": "/boards/<boardId>/report",
+            "method": "POST",
+            "authentication_needed": true,
+            "schema": { "$ref": "/schemas/entities/boardReportTypes/definitions/post/entities/canonic/index.json" },
+            "targetSchema": { "$ref": "/schemas/entities/data/definitions/null.json" },
+            "errors": ["UNSUPPORTED_ERROR", "FORMAT_VALIDATION_ERROR", "WRONG_BOARD_REPORT_TYPE"]
+        }
+    ]
+}

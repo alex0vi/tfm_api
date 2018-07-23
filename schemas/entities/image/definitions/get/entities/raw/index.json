@@ -1,0 +1,18 @@
+{
+     "id": "/schemas/entities/image/definitions/get/entities/raw/index.json",
+     "type": "object",
+     "properties": {
+         "free": {
+                 "type": "string",
+                 "format": "uri",
+                 "example": "https://develop.addaps.com/static/uploaded_images/b733e80f-b491-45c4-ad57-d25a03fa5578.jpg"
+         },
+         "id": {
+             "type": "string",
+             "format": "uuid",
+             "example": "c7ac87e1-bb57-41cb-be0e-eb8701dd62c6"
+         }
+     },
+     "required":  [ "id", "free" ],
+     "additionalProperties": false
+}

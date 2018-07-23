@@ -1,0 +1,17 @@
+{
+    "id": "/schemas/utilities/tel.json",
+    "type": ["object", "null"],
+    "description": "User's Telephone",
+    "properties": {
+        "dialCode":{
+            "type": "string",
+            "pattern": "(^\\+[\\d]+)$",
+            "example": "+34"
+        },
+        "localNumber": {
+            "type": "string",
+            "pattern": "\\d+",
+            "example": "123456789"
+        }
+    }
+}

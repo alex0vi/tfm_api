@@ -1,0 +1,28 @@
+{
+    "id": "/token",
+    "type": "object",
+    "title": "token",
+    "description": "token definition",
+    "allOf": [{ "$ref": "/schemas/entities/token/definitions/get/entities/refreshToken/index.json" }],
+    "links": [
+        {
+            "title": "POST token",
+            "description": "Create a new refresh/access token",
+            "href": "/token",
+            "method": "POST",
+            "schema": { "$ref": "/schemas/entities/token/definitions/post/entities/refreshToken/index.json" },
+            "authentication_needed": false,
+            "targetSchema": { "$ref": "/schemas/entities/token/definitions/get/entities/refreshToken/response.json" },
+            "errors": ["UNSUPPORTED_ERROR", "ACCESS_TOKEN_EXPIRED_FOREVER"]
+        },
+        {
+            "title": "DELETE token/<refreshToken>",
+            "description": "Revoke a refresh token",
+            "href": "/token/72d32a27-cf94-47b1-bf02-f3e2a031baf5",
+            "method": "DELETE",
+            "authentication_needed": false,
+            "targetSchema": { "$ref": "/schemas/entities/session/definitions/get/entities/guest/response.json" },
+            "errors": ["UNSUPPORTED_ERROR"]
+        }
+    ]
+}
