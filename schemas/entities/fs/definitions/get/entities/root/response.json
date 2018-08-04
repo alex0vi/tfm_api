@@ -1,8 +1,0 @@
-{
-    "id":  "/schemas/entities/fs/definitions/get/entities/root/response.json" ,
-    "description": "fs element schema",
-    "type": "object",
-    "properties": {
-        "data": { "$ref": "/schemas/entities/fs/definitions/get/entities/root/index.json" }
-    }
-}

@@ -1,6 +1,0 @@
-{
-    "id": "/schemas/entities/searchAutoComplete/definitions/get/canonic/responseSingle.json",
-    "type": "array",
-    "description": "searchAutoComplete Schema",
-    "items": { "$ref": "/schemas/entities/searchAutoComplete/definitions/get/canonic/index.json" }
-}

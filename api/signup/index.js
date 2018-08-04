@@ -1,12 +1,16 @@
 'use strict';
 
-const Ru = require('rutils/lib')
-const B = require('bluebird')
+const Ru                = require('rutils/lib')
 
+const B                 = require('bluebird')
+
+const ApiErr            = require('../apiErr')
+
+const apiU              = require('../utils')
 
 const applyResendRoutes = require('./resend')
 
-
+const uuid              = require('uuid')
 
 
 const applyRoute = spec => router => {
@@ -29,6 +33,53 @@ const applyRoute = spec => router => {
 
   console.log('applyRoute-signup');
 
+  const decodeClientId = code => {
+
+      if ( !Ru.is( String, code ) ) {
+          return {}
+      }
+
+      let [ encryptedStaticData, deviceAccountId ] = Ru.split( ':', code )
+
+      let staticData = auth.decryptFromInternalEncryption( encryptedStaticData )
+
+      try {
+          var parsedStaticData = JSON.parse( staticData )
+      } catch (e) {
+          var parsedStaticData = null
+      }
+
+      let isParsedStaticDataAnObj = Ru.isPlainObj( parsedStaticData )
+
+      if ( ( isParsedStaticDataAnObj && Ru.isEmpty( isParsedStaticDataAnObj ) ) || Ru.isNil( deviceAccountId ) ) {
+          return {}
+      }
+
+      return {
+          deviceType: parsedStaticData.deviceType,
+          deviceAccountId
+      }
+  }
+
+
+
+  const getTokenGrants = ( apiDbCONN, type ) => {
+
+      return (
+          db
+          .getTokenGrants( apiDbCONN, type )
+          .then( data => {
+
+              let mpr = Ru.pipe(
+                  Ru.pick(['urlPattern', 'httpMethod']),
+                  Ru.values,
+                  Ru.join('.')
+              )
+
+              return Ru.map( mpr, data )
+          })
+      )
+  }
 
   const signupUser = ( req, res, next ) => {
 
@@ -37,7 +88,7 @@ const applyRoute = spec => router => {
           .response
           .then( () => {
 
-              let { query, body, params, apiv2DbCONN } = req
+              let { query, body, params, apiDbCONN } = req
 
               let {
                   email,
@@ -50,7 +101,7 @@ const applyRoute = spec => router => {
 
               let tokenScopeType = 'LOGED_IN'
 
-              let hasExpirationDate = true
+              let hasExpirationDate = false
 
               let decodedClient = decodeClientId( clientId )
 
@@ -69,6 +120,7 @@ const applyRoute = spec => router => {
                           throw apiErr;
                       }
 
+
                       let spec = {
                           email,
                           hashedPassword,
@@ -78,19 +130,18 @@ const applyRoute = spec => router => {
 
                       return (
                           db
-                          .createUser( apiv2DbCONN, spec )
+                          .createUser( apiDbCONN, spec )
                       )
                   })
                   .then( userId => {
-
                       return(
                           B
                           .all([
                               db
-                              .getUserById( apiv2DbCONN, userId )
+                              .getUserDataById( apiDbCONN, userId )
                               ,
 
-                              getTokenGrants( apiv2DbCONN, tokenScopeType )
+                              getTokenGrants( apiDbCONN, tokenScopeType )
                           ])
                       )
                   })
@@ -123,11 +174,11 @@ const applyRoute = spec => router => {
                               ,
 
                               db
-                              .createRefreshToken( apiv2DbCONN, refreshTokenSpec )
+                              .createRefreshToken( apiDbCONN, refreshTokenSpec )
                               .then( refreshToken => {
                                   return(
                                       db
-                                      .getTokenInfoById( apiv2DbCONN, refreshToken )
+                                      .getTokenInfoById( apiDbCONN, refreshToken )
                                       .then( Ru.prop('version') )
                                       .then( version => [ refreshToken, version ] )
                                   )
@@ -174,7 +225,10 @@ const applyRoute = spec => router => {
 
 
 
-    router.post('/signup', signupUser)
+    router.post('/signup',
+        apiU.mkFormatValidation('schemas/entities/signUp/definitions/post/entities/email/index.json'),
+        signupUser
+    )
 
     return router
 }

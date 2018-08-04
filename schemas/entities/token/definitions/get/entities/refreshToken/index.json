@@ -5,7 +5,7 @@
         "accessToken": {
             "type": "string",
             "description": "user acces token",
-            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM2LCJBZGRhcHMiOnsidXNlcklkIjozNn0sImV4cCI6MTUyMzg3MjM4MSwic2NvcGVzIjpbIi9ib2FyZHMvOmlkKFswLTldKykuR0VUIiwiL2JvYXJkcy86aWQoWzAtOV0rKS9wdWJsaWNVcmwuR0VUIiwiL2JvYXJkcy86aWQoWzAtOV0rKS9yZXBvcnRUeXBlcy5QT1NUIiwiL2JvYXJkcy9yZXBvcnRUeXBlcy5HRVQiLCIvc2VhcmNoQXV0b0NvbXBsZXRlLkdFVCIsIi9zZXNzaW9uLlBPU1QiLCIvc2Vzc2lvbi9mYWNlYm9vay5QT1NUIiwiL3Nlc3Npb24vZ3Vlc3RfbW9kZV9zZXNzaW9uLkdFVCIsIi9zaWdudXAuUE9TVCIsIi9zaWdudXAvZmFjZWJvb2suUE9TVCIsIi90b2tlbi5ERUxFVEUiLCIvdG9rZW4uUE9TVCIsIi91c2VyLkdFVCIsIi91c2VyLlBBVENIIiwiL3VzZXIvYm9hcmRzLzppZChbMC05XSspLkdFVCIsIi91c2VyL2JvYXJkcy86aWQoWzAtOV0rKS5QQVRDSCIsIi91c2VyL2JvYXJkcy86aWQoWzAtOV0rKS9yZWNlbnRseU9wZW5lZC5QVVQiLCIvdXNlci9ib2FyZHMvOmlkKFswLTldKykvc3RhcnJlZC5ERUxFVEUiLCIvdXNlci9ib2FyZHMvOmlkKFswLTldKykvc3RhcnJlZC5QVVQiLCIvdXNlci9ib2FyZHMvcmVjZW50bHlPcGVuZWQuR0VUIiwiL3VzZXIvYm9hcmRzL3N0YXJyZWQuR0VUIiwiL3VzZXIvZGVhY3RpdmF0ZS5QT1NUIiwiL3VzZXIvZmVlZHMvZGlzY292ZXIuR0VUIiwiL3VzZXIvZnMvYm9hcmRzLkdFVCIsIi91c2VyL2ZzL2JvYXJkcy86aWQoWzAtOV0rKS5ERUxFVEUiLCIvdXNlci9mcy9ib2FyZHMvOmlkKFswLTldKykuR0VUIiwiL3VzZXIvZnMvYm9hcmRzLzppZChbMC05XSspLlBPU1QiLCIvdXNlci9mcy9ib2FyZHMvOmlkKFswLTldKykuUFVUIiwiL3VzZXIvZnMvYm9hcmRzL3RyYXNoLkRFTEVURSIsIi91c2VyL2ZzL2JvYXJkcy90cmFzaC5HRVQiLCIvdXNlci9mcy9ib2FyZHMvdHJhc2gvOmlkKFswLTldKykuREVMRVRFIiwiL3VzZXIvZnMvYm9hcmRzL3RyYXNoLzppZChbMC05XSspLkdFVCIsIi91c2VyL2ZzL2JvYXJkcy90cmFzaC86aWQoWzAtOV0rKS5QT1NUIiwiL3VzZXIvaW1hZ2VzLkdFVCIsIi91c2VyL2ltYWdlcy5QT1NUIiwiL3VzZXIvaW1hZ2VzLzppZC5HRVQiLCIvdXNlci9pbWFnZXMvYXZhdGFyLlBPU1QiLCIvdXNlci9pbWFnZXMvYm9hcmRCYWNrZ3JvdW5kLlBPU1QiLCIvdXNlci9pbWFnZXMvY292ZXIuUE9TVCIsIi91c2VyL3Bhc3N3b3JkLlBVVCIsIi91c2VyL3B1YmxpYy86aWQoWzAtOV0rKS5ERUxFVEUiLCIvdXNlci9wdWJsaWMvOmlkKFswLTldKykuUFVUIiwiL3VzZXIvcHVibGljL2JvYXJkcy5HRVQiLCIvdXNlci9xdWlja2xpbmtzLkRFTEVURSIsIi91c2VyL3F1aWNrbGlua3MuR0VUIiwiL3VzZXIvcXVpY2tsaW5rcy5QT1NUIiwiL3VzZXIvcXVpY2tsaW5rcy5QVVQiLCIvdXNlci9xdWlja2xpbmtzLzppZChbMC05XSspLkRFTEVURSIsIi91c2Vycy5HRVQiXSwiaWF0IjoxNTIzODcxNDgxfQ.aHSP9af0cttYmRylvdOMjApxnmUKXZR1Fk0yFx174-c"
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJleHAiOjE1MzM0MDY2ODQsInNjb3BlcyI6WyIvZmF2aWNvbi5HRVQiLCIvZm9yZ290UGFzc3dvcmQuUE9TVCIsIi9zZXNzaW9uLlBPU1QiLCIvc2Vzc2lvbi9mYWNlYm9vay5QT1NUIiwiL3Nlc3Npb24vZ3Vlc3RfbW9kZV9zZXNzaW9uLkdFVCIsIi9zaWdudXAuUE9TVCIsIi9zaWdudXAvZmFjZWJvb2suUE9TVCIsIi90b2tlbi5ERUxFVEUiLCIvdG9rZW4uUE9TVCIsIi91c2VyLkdFVCIsIi91c2VyLlBBVENIIiwiL3VzZXIvZGVhY3RpdmF0ZS5QT1NUIiwiL3VzZXIvcGFzc3dvcmQuUFVUIiwiL3VzZXJzLkdFVCJdLCJpYXQiOjE1MzM0MDU3ODR9.w6vc6VCaNHjq9GSWv8rMHdKmTsw9B8JcY48aOE4X0N0"
         },
         "refreshToken": {
             "type": "string",
@@ -16,11 +16,6 @@
         "scopes": {
             "type": "array",
             "example": [
-                "/boards/:id([0-9]+).GET",
-                "/boards/:id([0-9]+)/publicUrl.GET",
-                "/boards/:id([0-9]+)/reportTypes.POST",
-                "/boards/reportTypes.GET",
-                "/searchAutoComplete.GET",
                 "/session.POST",
                 "/session/facebook.POST",
                 "/session/guest_mode_session.GET",
@@ -30,41 +25,7 @@
                 "/token.POST",
                 "/user.GET",
                 "/user.PATCH",
-                "/user/boards/:id([0-9]+).GET",
-                "/user/boards/:id([0-9]+).PATCH",
-                "/user/boards/:id([0-9]+)/recentlyOpened.PUT",
-                "/user/boards/:id([0-9]+)/starred.DELETE",
-                "/user/boards/:id([0-9]+)/starred.PUT",
-                "/user/boards/recentlyOpened.GET",
-                "/user/boards/starred.GET",
-                "/user/deactivate.POST",
-                "/user/feeds/discover.GET",
-                "/user/fs/boards.GET",
-                "/user/fs/boards/:id([0-9]+).DELETE",
-                "/user/fs/boards/:id([0-9]+).GET",
-                "/user/fs/boards/:id([0-9]+).POST",
-                "/user/fs/boards/:id([0-9]+).PUT",
-                "/user/fs/boards/trash.DELETE",
-                "/user/fs/boards/trash.GET",
-                "/user/fs/boards/trash/:id([0-9]+).DELETE",
-                "/user/fs/boards/trash/:id([0-9]+).GET",
-                "/user/fs/boards/trash/:id([0-9]+).POST",
-                "/user/images.GET",
-                "/user/images.POST",
-                "/user/images/:id.GET",
-                "/user/images/avatar.POST",
-                "/user/images/boardBackground.POST",
-                "/user/images/cover.POST",
-                "/user/password.PUT",
-                "/user/public/:id([0-9]+).DELETE",
-                "/user/public/:id([0-9]+).PUT",
-                "/user/public/boards.GET",
-                "/user/quicklinks.DELETE",
-                "/user/quicklinks.GET",
-                "/user/quicklinks.POST",
-                "/user/quicklinks.PUT",
-                "/user/quicklinks/:id([0-9]+).DELETE",
-                "/users.GET"
+                "/user/password.PUT"
             ],
             "items": {
                 "type": "string"

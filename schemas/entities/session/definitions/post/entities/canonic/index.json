@@ -6,7 +6,7 @@
             "type": "string",
             "format": "email",
             "description": "user email",
-            "example": "emilio3@addaps.com",
+            "example": "alex@tfm.com",
             "maxLength": 255
         },
         "password": {

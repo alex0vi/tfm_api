@@ -15,6 +15,8 @@ const applyRoute = spec => router => {
     db
   } = services
 
+ console.log('applyRoute-user');
+
   const getUserData = (req, res, next) => {
 
     req.response = (

@@ -6,7 +6,7 @@
             "type": "string",
             "format": "email",
             "description": "user email",
-            "example": "emilio@addaps.com",
+            "example": "alex@tfm.com",
             "maxLength": 255
         },
         "password": {
@@ -18,13 +18,13 @@
         "firstName": {
             "type": "string",
             "description": "user firstName",
-            "example": "Emilio",
+            "example": "Alex",
             "maxLength": 255
         },
         "lastName": {
             "type": "string",
             "description": "user lastName",
-            "example": "Soca",
+            "example": "Oviedo",
             "maxLength": 255
         },
         "meta": {

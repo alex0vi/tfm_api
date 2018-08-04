@@ -1,6 +1,0 @@
-{
-    "id": "/schemas/entities/board/definitios/get/entities/fs/responseSingle.json",
-    "type": "array",
-    "description": "Main responseSingle fs Board Schema",
-    "items": {  "$ref": "/schemas/entities/board/definitios/get/entities/fs/index.json" }
-}

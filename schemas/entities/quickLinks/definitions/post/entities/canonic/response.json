@@ -1,8 +1,0 @@
-{
-    "id": "/schemas/entities/quickLinks/definitions/post/entities/canonic/response.json",
-    "type": "object",
-    "description": "QuickLink Schema",
-    "properties": {
-        "data": { "$ref": "/schemas/entities/quickLinks/definitions/get/entities/canonic/index.json" }
-    }
-}

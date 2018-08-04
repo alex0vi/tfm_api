@@ -5,113 +5,21 @@
         "firstName": {
             "type": "string",
             "description": "User's first name",
-            "example": "Emilio",
+            "example": "Alex",
             "maxLength": 255
         },
         "lastName": {
             "type": "string",
             "description": "User's last name",
-            "example": "Soca",
+            "example": "Oviedo",
             "maxLength": 255
-        },
-        "tel": { "$ref": "/schemas/utilities/tel.json" },
-        "avatar": { "$ref": "/schemas/entities/image/definitions/post/entities/avatar/index.json" },
-        "searchEngine": {
-            "type": "string",
-            "description": "User's search engine",
-            "example": "google",
-            "default": "google",
-            "enum": ["google", "baidu", "bing", "ecosia", "startpage", "yahoo", "yandex"]
-        },
-        "birthdate": {
-            "type": "string",
-            "format": "date-time",
-            "description": "User's birthdate",
-            "example": "1991-05-23T00:00:00.000Z"
-        },
-        "defaultBoardDisplay": {
-            "type": "string",
-            "description": "User's default display",
-            "example": "FULLSCREEN",
-            "default": "FULLSCREEN",
-            "enum": ["FULLSCREEN", "CUBE", "MAX"]
-        },
-        "defaultBoardIsPublic": {
-            "type": "boolean",
-            "description": "User's default privacy",
-            "default": false,
-            "example": false
-        },
-        "defaultBoardPrivacy": {
-            "type": "string",
-            "description": "User's default board privacy",
-            "default": "PRIVATE",
-            "example": "PRIVATE",
-            "enum": ["PRIVATE", "PUBLIC", "UNLISTED"]
-        },
-        "desktopSystem": {
-            "type": "object",
-            "description": "User settings",
-            "properties": {
-                "cubeDesigner": { "$ref": "/schemas/entities/user/entities/cubeDesigner/index.json" }
-            },
-            "required": ["cubeDesigner"]
         },
         "email": {
             "type": "string",
             "format": "email",
             "description": "User email",
-            "example": "emilio@addaps.com",
+            "example": "alex@tfm.com",
             "maxLength": 255
-        },
-        "cover": { "$ref": "/schemas/entities/image/definitions/post/entities/cover/index.json" },
-        "description": {
-            "type": "string",
-            "description": "User's description",
-            "example": "Reading"
-        },
-        "language": {
-            "type": "string",
-            "description": "User's language",
-            "example": "en",
-            "default": "en",
-            "pattern": "^[a-z]{2}$"
-        },
-        "labels": {
-            "type": "array",
-            "description": "Labels selected by user",
-            "uniqueItems": true,
-            "example": ["sports", "science"],
-            "items": {
-                "type": "string"
-            },
-            "minItems": 0
-        },
-        "country": {
-            "type": "string",
-            "description": "User's country",
-            "example": "ES",
-            "pattern": "^[A-Z]{2}$"
-        },
-        "defaultBoardBackground": { "$ref": "/schemas/entities/boardBackground/definitions/post/entities/canonic/index.json" },
-        "extensions": {
-            "type": "object",
-            "description": "Extensions selected by user",
-            "properties": {
-                "adblock": {
-                    "type": "boolean",
-                    "description": "User's extension",
-                    "example": true
-                }
-            },
-            "required": ["adblock"]
-        },
-        "gender": {
-            "type": "string",
-            "description": "User's gender",
-            "example": "MALE",
-            "default": "OTHER",
-            "enum": ["FEMALE", "MALE", "OTHER"]
         }
     },
     "additionalProperties": true

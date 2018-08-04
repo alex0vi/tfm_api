@@ -1,8 +1,0 @@
-{
-    "id": "/schemas/entities/board/definitios/get/entities/canonic/response.json",
-    "type": "object",
-    "description": "Board Private Schema response",
-    "properties": {
-        "data": { "$ref": "/schemas/entities/board/definitios/get/entities/canonic/index.json"}
-    }
-}

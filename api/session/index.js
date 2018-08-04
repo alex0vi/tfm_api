@@ -1,11 +1,14 @@
 'use strict';
 
+const Ru                = require('rutils/lib')
 
-const Ru = require('rutils/lib')
-const B = require('bluebird')
+const B                 = require('bluebird')
 
+const ApiErr            = require('../apiErr')
 
+const apiU              = require('../utils')
 
+const uuid              = require('uuid')
 
 const applyRoute = spec => router => {
   let {
@@ -16,140 +19,273 @@ const applyRoute = spec => router => {
   let {
     auth,
     db,
-    bl,
-    emailer
+    bl
   } = services
 
   let {
     rootViewsUrl
   } = conf
 
-  const getSession = ( req, res, next ) => {
+   console.log('applyRoute-session');
 
-    req.response = (
-      req
-      .response
-      .then( () => {
+  const decodeClientId = code => {
 
-        let { body, apiDbCONN } = req
+      if ( !Ru.is( String, code ) ) {
+          return {}
+      }
 
-        let { email, password  } = body
+      let [ encryptedStaticData, deviceAccountId ] = Ru.split( ':', code )
 
-        return (
-          B.all([
-            db
-            .getUserByEmail( apiDbCONN, email )
-            ,
+      let staticData = auth.decryptFromInternalEncryption( encryptedStaticData )
 
-            db
-            .getLastEmailVerificationToken( apiDbCONN, email )
-            ,
-          ])
-          .spread( (user, token) => {
+      try {
+          var parsedStaticData = JSON.parse( staticData )
+      } catch (e) {
+          var parsedStaticData = null
+      }
 
-            if ( Ru.isNil(user) ) {
-              return (
-                B
-                .resolve(token)
-                .then( Ru.when( Ru.isNil, () => B.reject('INVALID_EMAIL_OR_PASSWORD') ) )
-                .then( auth.verifyToken )
-                .then( tokenData => {
+      let isParsedStaticDataAnObj = Ru.isPlainObj( parsedStaticData )
 
-                    return (
-                      auth
-                      .compare( password , tokenData.password )
-                      .then( samePwd => {
+      if ( ( isParsedStaticDataAnObj && Ru.isEmpty( isParsedStaticDataAnObj ) ) || Ru.isNil( deviceAccountId ) ) {
+          return {}
+      }
 
-                          if ( !samePwd ) {
-                            return B.reject('INVALID_EMAIL_OR_PASSWORD')
-                          }
-
-                          let verifyLink = `${rootViewsUrl}/verify?token=${token}`
-
-                          let mailOptions = {
-                            to: [ email ],
-                            subject: 'Email not verify yet',
-                            text: ` Hello ${ tokenData.firstName },
-                              There has been an sign in attempt for Nation Pay platform using this account.
-                              If this was you, please  click here to confirm your email address (${verifyLink})
-                              If this was not you, don't worry and just ignore this email.
-                            `,
-                            textInHTML: bl.generateConfirmationWhenFailSignIn({
-                              firstName: tokenData.firstName,
-                              verifyLink: verifyLink
-                            })
-                          }
-
-                          return (
-                            emailer
-                            .send(mailOptions)
-                            .tap( x => console.log('x::: ', x))
-                            .then( () => B.reject('EMAIL_NOT_VERIFIED') )
-                          )
-                      })
-                    )
-                })
-              )
-            }
-
-            return user
-          } )
-          .then( user => {
-
-            let hashedPassword = user.password
-            let userId = user.id
-
-            return (
-              auth
-              .compare( password , hashedPassword )
-              .then( Ru.unless( Ru.I, falseValue => {
-
-                let errorCode = 'INVALID_EMAIL_OR_PASSWORD'
-
-                return B.reject(errorCode)
-              }))
-              .then( trueValue => {
-
-                let userWithoutPassord = Ru.omit(['password'], user )
-
-                let tokenObj = {
-                  userId
-                }
-
-                return (
-                  auth
-                  .signToken( tokenObj )
-                  .then( ( token ) => {
-
-                    let response = {
-                      data: {
-                        initialData: {
-                          user: userWithoutPassord
-                        }
-                      },
-                      token
-                    }
-
-                    return Ru.K( response )
-                  } )
-                )
-              } )
-
-            )
-
-          } )
-        )
-      } )
-    )
-
-    return(
-      B.resolve( req.response )
-      .then( () => next() )
-      .catch( () => next() )
-    )
+      return {
+          deviceType: parsedStaticData.deviceType,
+          deviceAccountId
+      }
   }
 
-  router.post('/session', getSession )
+
+
+  const getTokenGrants = ( apiDbCONN, type ) => {
+
+      return (
+          db
+          .getTokenGrants( apiDbCONN, type )
+          .then( data => {
+
+              let mpr = Ru.pipe(
+                  Ru.pick(['urlPattern', 'httpMethod']),
+                  Ru.values,
+                  Ru.join('.')
+              )
+
+              return Ru.map( mpr, data )
+          })
+      )
+  }
+
+  const getSession = ( req, res, next ) => {
+
+      req.response = (
+          req
+          .response
+          .then( () => {
+
+              let { query, body, params, apiDbCONN } = req
+
+              let {
+                  email,
+                  password,
+                  clientId,
+              } = body
+
+              let tokenScopeType = 'LOGED_IN'
+
+              let hasExpirationDate = false
+
+              let decodedClient = decodeClientId( clientId )
+
+              if ( decodedClient.deviceType === 'MOBILE' ) {
+                  hasExpirationDate = false
+              }
+
+              let spec = {
+                  email,
+                  password
+              }
+
+              if( !bl.validateEmail( email ) ){
+
+                  let apiErr = ApiErr.of('INVALID_EMAIL_FORMAT', { email })
+                  throw apiErr
+              }
+
+              return (
+
+                  db
+                  .getUserByEmail( apiDbCONN, email )
+
+                  .then( user => {
+
+                      let hashedPassword = user.password
+                      let userId = user.id
+
+
+                      if( Ru.isNil( hashedPassword ) ){
+
+                          return B.reject( ApiErr.of('WRONG_CREDENTIALS') )
+                      }
+
+                      return (
+                          B.all([
+                              auth
+                              .compare( password , hashedPassword )
+                              .then( Ru.unless( Ru.identity, falseValue => {
+                                  return B.reject( ApiErr.of('WRONG_CREDENTIALS') )
+                              }))
+                              ,
+
+                              getTokenGrants(apiDbCONN, tokenScopeType)
+
+                          ])
+                          .spread( ( trueValue, scopes ) => {
+
+                              let userWithoutPassord = Ru.omit(['password'], user )
+
+                              let accessTokenExpTime = apiU.getAccessTokenExpTime()
+
+                              let refreshTokenExpTime = apiU.getRefreshTokenExpTime()
+
+                              let tokenObj = {
+                                  userId,
+                                  exp: apiU.date2AccessTokenFormat( accessTokenExpTime ),
+                                  scopes
+                              }
+
+
+                              let expirationDate = hasExpirationDate ? apiU.date2RefreshTokenFormat( refreshTokenExpTime ) : null
+
+                              let refreshTokenSpec = {
+                                  id: uuid(),
+                                  userId,
+                                  expirationDate,
+                                  userTokenScope  : tokenScopeType,
+                                  deviceAccountId : decodedClient.deviceAccountId,
+                              }
+
+                              return (
+                                  B
+                                  .all([
+                                      auth
+                                      .signToken( tokenObj )
+                                      ,
+
+                                      B
+                                      .resolve( Ru.isNil( clientId ) || Ru.isEmpty( decodedClient ) )
+                                      .then( isClientIdMissing => {
+                                          return (
+                                              isClientIdMissing ?
+                                                  db
+                                                  .revokeOrphanRefreshTokens( apiDbCONN, userId ) :
+                                                  B
+                                                  .all([
+                                                      db
+                                                      .revokeRefreshTokens( apiDbCONN, { userId, deviceAccountId : decodedClient.deviceAccountId } )
+                                                      ,
+                                                      db
+                                                      .revokeOrphanRefreshTokens( apiDbCONN, userId )
+                                                  ])
+                                          )
+                                      })
+                                      .then( () => {
+                                          return (
+                                              db
+                                              .createRefreshToken( apiDbCONN, refreshTokenSpec )
+                                              .then( refreshToken => {
+                                                  return(
+                                                      db
+                                                      .getTokenInfoById( apiDbCONN, refreshToken )
+                                                      .then( Ru.prop('version') )
+                                                      .then( version => [ refreshToken, version ] )
+                                                  )
+                                              })
+                                          )
+                                      })
+                                  ])
+                                  .spread( ( accessToken, [ refreshToken, version ] ) => {
+
+                                      let response = {
+                                          data: {
+                                              initialData: {
+                                                  user: userWithoutPassord
+                                              },
+                                              accessToken,
+                                              refreshToken,
+                                              version
+                                          }
+                                      }
+
+                                      return Ru.K( response )
+                                  } )
+                              )
+                          } )
+
+                      )
+
+                  } )
+              )
+          } )
+      )
+
+      return(
+          B.resolve( req.response )
+          .then( () => next() )
+          .catch( () => next() )
+      )
+  }
+
+
+  const getSessionInGuestMode = (req, res, next) => {
+
+      req.response = (
+          req
+          .response
+          .then( () => {
+              let { query, body, params, apiDbCONN } = req
+
+              let tokenScopeType = 'GUEST'
+
+              return (
+                  getTokenGrants( apiDbCONN, tokenScopeType )
+                  .then( scopes => {
+
+                      let tokenObj = {
+                          scopes: scopes
+                      }
+
+                      return(
+                          auth
+                          .signToken( tokenObj )
+                          .then( accessToken => {
+
+                              let response = {
+                                  accessToken,
+                                  refreshToken: null
+                              }
+
+                              return  response
+                          })
+                      )
+                  })
+              )
+          })
+      )
+
+      return(
+          B.resolve( req.response )
+          .then( () => next() )
+          .catch( () => next() )
+      )
+  }
+
+  router.post('/session',
+        apiU.mkFormatValidation('schemas/entities/session/definitions/post/entities/canonic/index.json'),
+        getSession
+  )
+
+  router.get('/guest_mode_session', getSessionInGuestMode )
 
   return router
 }

@@ -1,8 +1,0 @@
-{
-    "id": "/schemas/entities/board/definitios/get/entities/public/responseById.json",
-    "type": "object",
-    "description": "Board Public Schema",
-    "properties": {
-        "data": { "$ref": "/schemas/entities/board/definitios/get/entities/public/index.json" }
-    }
-}

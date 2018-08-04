@@ -1,7 +1,0 @@
-{
-    "id": "/schemas/entities/boardReportTypes/definitions/get/entities/canonic/responseSingle.json",
-    "description": "Report type single schema",
-    "type": "array",
-    "items": { "$ref": "/schemas/entities/boardReportTypes/definitions/get/entities/canonic/index.json" }
-
-}

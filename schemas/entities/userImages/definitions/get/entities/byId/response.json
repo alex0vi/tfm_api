@@ -1,8 +1,0 @@
-{
-    "id": "/schemas/entities/userImages/definitions/get/entities/byId/response.json",
-    "type": "object",
-    "description": "Images by id response schema",
-    "properties": {
-        "data": { "$ref": "/schemas/entities/userImages/definitions/get/entities/byId/index.json" }
-    }
-}

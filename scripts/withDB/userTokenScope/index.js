@@ -176,7 +176,7 @@ const run = connectToApiV2Db((data, conf, context) => {
 
     let q = `
         INSERT IGNORE INTO
-            apiv2.users_grants_types(
+            api.users_grants_types(
                 user_token_scope,
                 url_pattern,
                 http_method

@@ -22,7 +22,7 @@
                 "info": {
                     "type": "string",
                     "format": "uri",
-                    "example": "https://develop.addaps.com/api/v2/docs#errors/WRONG_CREDENTIALS"
+                    "example": "https://develop.tfm.com/api/docs#errors/WRONG_CREDENTIALS"
                 },
                 "payload": {
                     "type": "object"

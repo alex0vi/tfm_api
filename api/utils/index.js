@@ -4,8 +4,8 @@ const Ru = require('rutils');
 const moment = require('moment');
 const B = require('bluebird');
 const fs = B.promisifyAll( require("fs") );
-const ApiErr = require('apiErr');
-const ajv = require('ajv');
+const ApiErr = require('../apiErr');
+const ajv = require('../ajv');
 
 const _idsStrToIdsNumber = Ru.pipe(
     Ru.split(','),
@@ -74,9 +74,7 @@ const getRefreshTokenExpTime = () => moment().add( 6, 'M' ).utc()
 
 const getRefreshTokenExpTimeFormated = () => date2RefreshTokenFormat( getRefreshTokenExpTime() )
 
-module.exports = conf => {
-  writeUploadedImgInFs,
-  writeScreenshotImgInFs,
+module.exports = {
   idsStrToIdsNumber,
   mkFormatValidation,
   mkCompileSchema,

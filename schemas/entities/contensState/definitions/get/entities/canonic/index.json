@@ -1,6 +1,0 @@
-{
-    "id": "/schemas/entities/contensState/definitions/get/entities/canonic/index.json",
-    "type": "array",
-    "description": "array of content state",
-    "items": { "$ref": "/schemas/entities/contensState/definitions/get/entities/normal/index.json" }
-}

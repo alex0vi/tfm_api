@@ -7,7 +7,7 @@
             "type": "string",
             "description": "User email",
             "format": "email",
-            "example": "alex@addaps.com",
+            "example": "alex@tfm.com",
             "maxItems": 255
         }
     },

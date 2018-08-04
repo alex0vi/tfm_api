@@ -1,19 +1,89 @@
 version: '3'
 
 services:
-    mysql:
-        build: ./docker_dependencies/mysql
+    db:
+        image: tfm_db
+        build: ./dockerDependencies/mysql
+        container_name: tfm_db
+        command: --sql_mode=""
         environment:
             - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=api
+        volumes:
+            - mysql-data:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        restart: unless-stopped
         healthcheck:
             test: "exit 0"
-    
+        networks:
+            - mynet
+
+    # elasticsearch:
+    #     image: docker.elastic.co/elasticsearch/elasticsearch:5.1.1
+    #     container_name: elasticsearch
+    #     environment:
+    #         - cluster.name=docker-cluster
+    #         - bootstrap.memory_lock=true
+    #         - ELASTIC_PASSWORD=changeme
+    #         - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    #         - xpack.security.enabled=false
+    #     ulimits:
+    #         memlock:
+    #             soft: -1
+    #             hard: -1
+    #     volumes:
+    #         - es-data:/usr/share/elasticsearch/data/
+    #     ports:
+    #         - "9200:9200"
+    #     restart: unless-stopped
+    #     networks:
+    #         - mynet
+
+    # kibana:
+    #     image: docker.elastic.co/kibana/kibana:5.1.1
+    #     container_name: kibana
+    #     environment:
+    #         - ELASTICSEARCH_URL=http://elasticsearch:9200
+    #         - XPACK_MONITORING_ENABLED=false
+    #     depends_on:
+    #         - elasticsearch
+    #     ports:
+    #         - "5601:5601"
+    #     restart: unless-stopped
+    #     networks:
+    #         - mynet
+
     api:
-        build: .
+        image: tfm_api
+        build: ./
+        container_name: tfm_api
+        volumes:
+            - .:/usr/src/tfm_api
+            - /usr/src/tfm_api/node_modules
         depends_on:
-            mysql:
-                condition: service_healthy
-        entrypoint:
-            - /usr/local/bin/docker-entrypoint.sh
+            - db
         ports:
-            - "4000:4000"
+            - "${TFM_API_PORT}:${TFM_API_PORT}"
+        #env_file:
+          # - .env
+        environment:
+            - NODE_ENV=development
+            - TFM_DB_API_HOST=db
+            - TFM_DB_API_PORT=3306
+            - TFM_DB_API_USER=root
+            - TFM_DB_API_PASS=root
+            - TFM_DB_API_DATABASE_NAME=api
+        networks:
+            - mynet
+        tty: true
+
+
+volumes:
+    mysql-data:
+    #es-data:
+
+networks:
+    mynet:
+        driver: bridge

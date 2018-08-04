@@ -123,7 +123,7 @@ const run = connectToApiV2Db((endpoints, conf, context) => {
 
     let q = `
         INSERT IGNORE INTO
-            apiv2.api_endpoints(
+            api.api_endpoints(
                 url_pattern,
                 http_method
             )

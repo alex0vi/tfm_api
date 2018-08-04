@@ -16,6 +16,8 @@ const B = require('bluebird');
 const favicon   = require('serve-favicon')
 const ApiErr = require('./apiErr')
 
+const pathToRegex = require('path-to-regexp')
+
 // const db = require('services/db')
 
 
@@ -31,6 +33,8 @@ const mk = conf => {
 
   const someSessionRequest    = ( url, m ) => Ru.startsWith('/api/session', url)
 
+  const isGetSessionInGuestMode = ( url, m ) => url ==='/api/guest_mode_session' && m === 'GET';
+
   const isGenerateToken = ( url, m ) => Ru.startsWith('/api/token', url) && m === 'POST'
 
   const isDocs = ( url, m ) => Ru.startsWith('/api/docs', url);
@@ -39,6 +43,7 @@ const mk = conf => {
   const noTokenNeeded = Ru.anyPass([
       someSessionRequest,
       someSignupRequest,
+      isGetSessionInGuestMode,
       isGenerateToken,
       isDocs
 
@@ -96,7 +101,7 @@ const mk = conf => {
       } = endpointData
 
 
-      const isRequestedUrl = urlPattern => Ru.isNotNil( pathToRegex( `/api/${ urlPattern }` ).exec( url ) )
+      const isRequestedUrl = urlPattern => Ru.isNotNil( pathToRegex( `/api${ urlPattern }` ).exec( url ) )
 
       for( let s of scopes) {
 

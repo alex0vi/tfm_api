@@ -341,7 +341,7 @@ const mk = (spec, db) => {
         firstName,
         lastName,
         email,
-        password
+        hashedPassword
       } = spec
 
       let q = `
@@ -349,21 +349,20 @@ const mk = (spec, db) => {
             firstname,
             lastname,
             email,
-            password,
-            ico_requirements_status
+            password
           )
           VALUES
             ?
       `
 
-      let qValues = [ [ [ firstName, lastName, email, password, 'WORLD_NOT_VERIFY' ] ]]
+      let qValues = [ [ [ firstName, lastName, email, hashedPassword ] ]]
 
       let sql = mysql.format( q, qValues )
 
       return (
         CONN
         .queryAsync( q, qValues )
-        // .then( )
+        .then( res => res.insertId )
       )
 
     })
@@ -413,6 +412,30 @@ const mk = (spec, db) => {
       )
     })
 
+    const getUserById = Ru.curry( ( CONN, userId ) => {
+
+      let q = `
+        SELECT
+          id
+        FROM users
+        WHERE
+          id = ?
+      `
+
+      let qValues = [ userId ]
+
+      let sql = mysql.format( q, qValues )
+
+      console.log('sql:::getUserByEmail:::', sql);
+
+      return(
+        CONN
+        .queryAsync( sql )
+        .then( Ru.o( unlessNil( Ru.prop('id') ), Ru.head ) )
+        .then( getUserDataById( CONN ) )
+      )
+    })
+
 
     const getLastEmailVerificationToken = Ru.curry( (CONN, email) => {
       let q = `
@@ -443,6 +466,7 @@ const mk = (spec, db) => {
     return {
       getLastEmailVerificationToken,
       getUserByEmail,
+      getUserById,
       deleteEmailPendingVerifications,
       createUser,
       userEmailExists,
@@ -464,26 +488,4 @@ const mk = (spec, db) => {
     }
 }
 
-
-
-// let s = [
-//   {
-//    id: 1,
-//    firstName: 'Daniel',
-//    lastName: 'Tiati',
-//    email: 'dondanidang@gmail.com',
-//    password: '$2a$10$A0Yzg8yqWhrqnCpHAClnQ.2Hie.GjDtyk2yWoIgWdU8mstGRqY1ue'},
-//   {
-//    id: 5,
-//    firstName: 'Daniel',
-//    lastName: 'Tiati',
-//    email: 'dondanidang@gmail.com',
-//    password: '$2a$10$A0Yzg8yqWhrqnCpHAClnQ.2Hie.GjDtyk2yWoIgWdU8mstGRqY1ue'},
-//   {
-//    id: 0,
-//    firstName: 'Daniel',
-//    lastName: 'Tiati',
-//    email: 'dondanidang@gmail.com',
-//    password: '$2a$10$A0Yzg8yqWhrqnCpHAClnQ.2Hie.GjDtyk2yWoIgWdU8mstGRqY1ue' }
-//  ]
 module.exports = mk

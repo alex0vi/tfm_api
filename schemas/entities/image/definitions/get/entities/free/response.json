@@ -1,8 +1,0 @@
-{
-    "id": "/schemas/entities/image/definitions/get/entities/free/response.json",
-    "type": "object",
-    "description": "BoardBackground image Schema",
-    "properties": {
-        "data": { "$ref": "/schemas/entities/image/definitions/get/entities/free/index.json" }
-    }
-}
