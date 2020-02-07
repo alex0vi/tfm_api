@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const Ru = require('rutils/lib');
 
 const morgan = require('morgan');
-const cors = require('cors')
+const cors = require('./cors.js')
 const B = require('bluebird');
 
 
@@ -375,6 +375,7 @@ const mk = conf => {
       app.use(bodyParser.json())
       app.use(bodyParser.text({type: 'text/plain', limit: '1000mb' }))
 
+      app.all("*", cors);
 
       return app
   }

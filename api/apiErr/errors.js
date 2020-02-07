@@ -310,7 +310,7 @@ let initErrors = {
     }
 };
 
-let rootUrl = 'https://develop.tfm_app.com/api/docs#errors/';
+let rootUrl = 'https://develop.shardu.com/api/docs#errors/';
 
 
 const addInfoField = Ru.chain(  Ru.assoc('info') ,Ru.compose( Ru.concat(rootUrl) ,Ru.prop('code') ) );

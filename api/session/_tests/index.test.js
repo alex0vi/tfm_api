@@ -158,7 +158,7 @@ const initSessionTesting = () => {
 
     //SESSION GUESTMODE
     describe( 'SESSION Guest mode', () => {
-        it('GET api/v2/guest_mode_session Successful', done => {
+        it('GET api/guest_mode_session Successful', done => {
             api
             .get( "guest_mode_session" )
             .then( data => {
